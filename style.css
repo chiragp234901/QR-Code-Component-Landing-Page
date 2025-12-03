@@ -1,7 +1,16 @@
+:root {
+    --background-color: hsl(212, 45%, 89%); /* Define variable once */
+    --box-color: hsl(0, 0%, 100%); /* Define variable once */
+    --boldText-color: hsl(218, 44%, 22%); /* Define variable once */
+    --normalText-color: hsl(216, 15%, 48%); /* Define variable once */
+    --font-family-primary: 'Outfit', sans-serif; /* Example font variable */ /* Custom font with generic fallback */
+}
+
+
 .background{
     margin:0;
     padding:0;
-    background-color: hsl(212, 45%, 89%); 
+    background-color: var(--background-color);
 }
 
 .container{
@@ -12,51 +21,61 @@
 }
 
 .box{
-    background-color: hsl(0, 0%, 100%);
-    width: 250px;
-    padding: 12px;
+    background-color: var(--box-color);
+    width: 16.875em; /*250px/16=15.625em*/
+    padding: 12px; 
     border-radius: 12px;
 }
 
 .qrCode .qrImage{
-    width: 250px;
-    height: 250px;
+    width: 16.875em; /*250px/16=15.625em*/
+    height: 16.875em; /*250px/16=15.625em*/
     border-radius: 10px;
 }
 
-.boldText p{
+.boldText h1{
     text-align: center;
-    text-decoration: bold;
-    font-family: 'Outfit';
+    font-family:  var(--font-family-primary); /* Reuse font variable */
     font-weight: 700;
-    color: hsl(218, 44%, 22%);
+    color: var(--boldText-color);
     font-size: 20px;
+    width: 13.1em;
 }
 
 .normalText p{
     text-align: center;
-    font-family: 'Outfit';
+    font-family:  var(--font-family-primary); /* Reuse font variable */ 
     font-weight: 400;
-    color: hsl(216, 15%, 48%);
+    color:var(--normalText-color);
     font-size: 15px;
+    width: 17.7em;
 }
 
-@media(max-width: 375px){
+@media (min-width: 90em) { /* 1440px / 16 = 90em */
+    body{
+        display: flex;
+        justify-content: center; 
+        align-items: center; 
+        height: 100vh;
+        background-color: var(--background-color);
+    }
+}
+
+@media (max-width: 23.4375em) { /* 375px / 16 = 23.4375em */
     body{
         display: flex;
         justify-content: center; 
         align-items: center; 
         height: 100vh;
     }
-
     .background{
         display: flex;
         justify-content: center; 
         align-items: center; 
-        height: 100vh;
         
         width: 320px;
         height:550px;
-        background-color: hsl(212, 45%, 89%);
+        background-color:var(--background-color);
     }
+
 }
